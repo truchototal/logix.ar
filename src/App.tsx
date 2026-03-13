@@ -10,8 +10,8 @@ import PageTransition from "@/components/PageTransition";
 import { ReactLenis } from '@studio-freight/react-lenis';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PortfolioFooter from "@/components/PortfolioFooter";
 
-// Lazy-loaded pages for code splitting
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -20,8 +20,23 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Onboarding = lazy(() => import("./pages/Onboarding"));
+const Equipo = lazy(() => import("./pages/Equipo"));
+const MemberPortfolio = lazy(() => import("./pages/MemberPortfolio"));
 
 const queryClient = new QueryClient();
+
+const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
+  const location = useLocation();
+  const isPortfolio = location.pathname.startsWith("/portfolio");
+
+  return (
+    <>
+      {!isPortfolio && <Navbar />}
+      {children}
+      {isPortfolio ? <PortfolioFooter /> : <Footer />}
+    </>
+  );
+};
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -40,6 +55,8 @@ const AnimatedRoutes = () => {
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+          <Route path="/equipo" element={<PageTransition><Equipo /></PageTransition>} />
+          <Route path="/portfolio/:id" element={<PageTransition><MemberPortfolio /></PageTransition>} />
           <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
           <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
           <Route path="/onboarding" element={<PageTransition><Onboarding /></PageTransition>} />
@@ -58,9 +75,9 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Navbar />
-            <AnimatedRoutes />
-            <Footer />
+            <LayoutWrapper>
+              <AnimatedRoutes />
+            </LayoutWrapper>
           </BrowserRouter>
         </LanguageProvider>
       </TooltipProvider>

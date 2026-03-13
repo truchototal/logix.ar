@@ -53,7 +53,7 @@ const Index = () => {
       }}>
 
         {/* Hero Section */}
-        <section className="relative overflow-visible min-h-[85vh] sm:min-h-screen flex items-center py-16 sm:py-0">
+        <section className="relative overflow-visible min-h-[85vh] sm:min-h-screen flex items-center py-16      sm:py-0">
           {/* Radial vignette overlay */}
           <div style={{
             position: 'absolute',

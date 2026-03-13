@@ -12,6 +12,41 @@ const translations: Translations = {
   "nav.about": { en: "About Us", es: "Nosotros" },
   "nav.projects": { en: "Projects", es: "Proyectos" },
   "nav.contact": { en: "Contact", es: "Contacto" },
+  "nav.team": { en: "Team", es: "Equipo" },
+
+  // Team Page
+  "team.title": { en: "The Team", es: "El Equipo" },
+  "team.hero.title": { en: "Creative Minds Behind Logix.ar", es: "Mentes Creativas Detrás de Logix.ar" },
+  "team.hero.subtitle": {
+    en: "Meet the experts who bring your digital visions to life with precision and creativity.",
+    es: "Conoce a los expertos que dan vida a tus visiones digitales con precisión y creatividad.",
+  },
+  "team.editor.name": { en: "Tiziano Ambrosino", es: "Tiziano Ambrosino" },
+  "team.editor.role": { en: "Short-Form Video Editor", es: "Editor de Video (Short-form)" },
+  "team.editor.desc": {
+    en: "Expert in high-impact short-form content, specializing in dynamic editing for TikToks, Reels, and YouTube Shorts that capture attention and drive engagement.",
+    es: "Experto en contenido de alto impacto para formatos cortos, especializado en edición dinámica para TikToks, Reels y YouTube Shorts que captan la atención y generan engagement.",
+  },
+  "team.designer.name": { en: "Tiziano Ambrosino", es: "Tiziano Ambrosino" },
+  "team.designer.role": { en: "Graphic & Brand Designer", es: "Diseñador Gráfico y de Marca" },
+  "team.designer.desc": {
+    en: "Creating powerful visual identities through custom logos, professional banners, striking flyers, and high-conversion thumbnails.",
+    es: "Creando identidades visuales potentes a través de logos a medida, banners profesionales, flayers impactantes y miniaturas de alta conversión.",
+  },
+  "team.automation.name": { en: "Joaquin Lotumolo", es: "Joaquin Lotumolo" },
+  "team.automation.role": { en: "Automation Team", es: "Equipo de Automatizaciones" },
+  "team.automation.desc": {
+    en: "Specialist in developing autonomous systems, intelligent agents, and custom workflows that eliminate friction and maximize operational efficiency.",
+    es: "Especialista en desarrollar sistemas autónomos, agentes inteligentes y flujos de trabajo a medida que eliminan fricciones y maximizan la eficiencia operativa.",
+  },
+  "team.portfolio.title": { en: "Featured Work", es: "Trabajos Destacados" },
+  "team.portfolio.editor.item1": { en: "Viral Reels Collection", es: "Colección de Reels Virales" },
+  "team.portfolio.editor.item2": { en: "High-Energy TikToks", es: "TikToks de Alta Energía" },
+  "team.portfolio.designer.item1": { en: "Logo & Brand Identity", es: "Logos e Identidad de Marca" },
+  "team.portfolio.designer.item2": { en: "Banners & Thumbnails", es: "Banners y Miniaturas" },
+  "team.portfolio.automation.item1": { en: "Intelligent CRM Sync", es: "Sincronización de CRM" },
+  "team.portfolio.automation.item2": { en: "Autonomous AI Agents", es: "Agentes de IA Autónomos" },
+  "team.portfolio": { en: "View Portfolio", es: "Ver Portafolio" },
 
   // Hero
   "hero.title": { en: "Intelligent Systems to Optimize your Business", es: "Sistemas Inteligentes para Optimizar tu Negocio" },

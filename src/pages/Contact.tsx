@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import { FaInstagram, FaTiktok, FaDiscord } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaFacebook } from "react-icons/fa";
 import { fadeUp } from "@/lib/animations";
 
 const Contact = () => {
@@ -43,8 +43,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: lang === "en" ? "Phone" : "Teléfono",
-      value: "+54 9 29 9570-7006",
-      link: "tel:+5419295707006",
+      value: "+54 9 29 9603-2898",
+      link: "tel:+5419296032898",
     },
     {
       icon: MapPin,
@@ -156,13 +156,13 @@ const Contact = () => {
               >
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold font-display mb-2" style={{ color: 'white' }}>
-                     {lang === "en" ? "Send a Message" : "Envíanos un Mensaje"}
+                    {lang === "en" ? "Send a Message" : "Envíanos un Mensaje"}
                   </h3>
                   <p style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
                     {lang === "en" ? "We usually respond within 24 hours." : "Normalmente respondemos en menos de 24 horas."}
                   </p>
                 </div>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Grid for Name and Phone */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -289,35 +289,35 @@ const Contact = () => {
 
                   <div className="pt-4">
 
-                  <button
-                    type="submit"
-                    disabled={submitStatus === "loading"}
-                    className="w-full py-3 px-6 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                    style={{
-                      background: 'linear-gradient(135deg, #00d9ff 0%, #0099cc 100%)',
-                      color: '#000000',
-                      boxShadow: '0 0 10px rgba(0, 217, 255, 0.4)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 217, 255, 0.6)';
-                      e.currentTarget.style.transform = 'scale(1.01)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 217, 255, 0.4)';
-                      e.currentTarget.style.transform = 'scale(1)';
-                    }}
-                  >
-                    {submitStatus === "loading" ? (
-                      <span>{lang === "en" ? "Sending..." : "Enviando..."}</span>
-                    ) : submitStatus === "success" ? (
-                      <span>{lang === "en" ? "✓ Sent!" : "✓ ¡Enviado!"}</span>
-                    ) : (
-                      <>
-                        {lang === "en" ? "Send Message" : "Enviar Mensaje"}
-                        <ArrowRight className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                    <button
+                      type="submit"
+                      disabled={submitStatus === "loading"}
+                      className="w-full py-3 px-6 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                      style={{
+                        background: 'linear-gradient(135deg, #00d9ff 0%, #0099cc 100%)',
+                        color: '#000000',
+                        boxShadow: '0 0 10px rgba(0, 217, 255, 0.4)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 217, 255, 0.6)';
+                        e.currentTarget.style.transform = 'scale(1.01)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = '0 0 10px rgba(0, 217, 255, 0.4)';
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }}
+                    >
+                      {submitStatus === "loading" ? (
+                        <span>{lang === "en" ? "Sending..." : "Enviando..."}</span>
+                      ) : submitStatus === "success" ? (
+                        <span>{lang === "en" ? "✓ Sent!" : "✓ ¡Enviado!"}</span>
+                      ) : (
+                        <>
+                          {lang === "en" ? "Send Message" : "Enviar Mensaje"}
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
                   </div>
                 </form>
               </motion.div>
@@ -371,7 +371,7 @@ const Contact = () => {
                 </motion.a>
 
                 <motion.a
-                  href="https://discord.gg/wMNd3GFGuq"
+                  href="https://www.facebook.com/profile.php?id=61587834152628"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-lg flex items-center justify-center transition-all"
@@ -386,7 +386,7 @@ const Contact = () => {
                     borderColor: 'rgba(0, 217, 255, 0.5)',
                   }}
                 >
-                  <FaDiscord size={20} />
+                  <FaFacebook size={20} />
                 </motion.a>
               </div>
             </motion.div>

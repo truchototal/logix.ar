@@ -28,6 +28,7 @@ const Footer = () => {
             <div className="flex flex-col gap-3">
               <h3 className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#00aeff' }}>{t("footer.company")}</h3>
               <Link to="/about" className="text-sm transition-colors" style={{ color: 'rgba(255, 255, 255, 0.6)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#00d9ff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>{t("nav.about")}</Link>
+              <Link to="/equipo" className="text-sm transition-colors" style={{ color: 'rgba(255, 255, 255, 0.6)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#00d9ff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>{t("nav.team")}</Link>
               <Link to="/contact" className="text-sm transition-colors" style={{ color: 'rgba(255, 255, 255, 0.6)' }} onMouseEnter={(e) => e.currentTarget.style.color = '#00d9ff'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)'}>{t("nav.contact")}</Link>
             </div>
           </div>
