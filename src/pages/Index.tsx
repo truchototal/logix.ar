@@ -44,7 +44,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Full page background wrapper */}
-      <div className="relative w-full min-h-full" style={{
+      <div className="relative w-full min-h-full md:pt-10 pt-20" style={{
         backgroundColor: '#000000',
         backgroundImage: `
           radial-gradient(circle at 50% 0%, rgba(0, 217, 255, 0.05) 0%, transparent 60%),

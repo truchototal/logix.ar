@@ -40,142 +40,155 @@ const MemberPortfolio = () => {
 
   const portfolioData = isTiziano ? {
     name: "Tiziano Ambrosino",
-    role: lang === "es" ? "Editor & Diseñador" : "Editor & Designer",
+    titlePrefix: lang === "es" ? "Multiplicando Ventas con" : "Multiplying Sales with",
+    role: lang === "es" ? "Estratega de Contenido & Conversión" : "Content & Conversion Strategist",
+    mainDesc: lang === "es"
+      ? "No solo edito videos o hago diseños: creo activos digitales que captan la atención de tu cliente ideal, construyen autoridad y convierten tráfico en facturación predecible."
+      : "I don't just edit videos or design: I build digital assets that capture your ideal client's attention, build authority, and turn traffic into predictable revenue.",
     color: "#ff0080",
     gradient: "linear-gradient(135deg, rgba(255, 0, 128, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%)",
+    showcaseVideos: [
+      { id: 1, videoUrl: "" },
+      { id: 2, videoUrl: "" },
+      { id: 3, videoUrl: "" },
+    ],
     sections: [
       {
-        title: lang === "es" ? "Edición de Video Short-Form" : "Short-Form Video Editing",
+        title: lang === "es" ? "Video que Cierra Ventas (Short-Form)" : "Video that Closes Sales (Short-Form)",
         desc: lang === "es"
-          ? "Dominio total de la narrativa visual para plataformas verticales. Me enfoco en capturar la atención en los primeros 3 segundos y mantenerla mediante cortes dinámicos, sound design inmersivo y subtítulos animados de alto impacto."
-          : "Total mastery of visual storytelling for vertical platforms. I focus on capturing attention in the first 3 seconds and maintaining it through dynamic cuts, immersive sound design, and high-impact animated subtitles.",
+          ? "El contenido es tu mejor vendedor 24/7. Retenemos la atención en los primeros 3 segundos y la transformamos en deseo de compra a través de narrativas visuales de alto impacto."
+          : "Content is your best 24/7 salesperson. We hold attention in the first 3 seconds and transform it into buying desire through high-impact visual narratives.",
         items: [
           {
-            title: lang === "es" ? "Reels Virales" : "Viral Reels",
+            title: lang === "es" ? "Reels de Alta Retención" : "High-Retention Reels",
             icon: Play,
-            tags: ["High-Retention", "Dynamic"],
+            tags: ["Tráfico Viral", "Conversión"],
             details: lang === "es"
-              ? "Edición optimizada para algoritmos, priorizando el 'watch time' y la interacción mediante loops perfectos y transiciones fluidas."
-              : "Algorithm-optimized editing, prioritizing watch time and interaction through perfect loops and fluid transitions."
+              ? "Optimizamos tu contenido para vencer el scroll infinito. Más tiempo de visualización significa más alcance gratuito, más seguidores y nuevos clientes potenciales cada día."
+              : "We optimize your content to beat the infinite scroll. More watch time means more organic reach, more followers, and new potential clients every day."
           },
           {
-            title: lang === "es" ? "Clips de Storytelling" : "Storytelling Clips",
+            title: lang === "es" ? "Clips de Autoridad" : "Authority Clips",
             icon: Sparkles,
-            tags: ["Narrative", "Audio"],
+            tags: ["Confianza", "Cierre"],
             details: lang === "es"
-              ? "Transformo contenido crudo en historias cautivadoras, utilizando diseño sonoro avanzado y ritmos visuales que refuerzan el mensaje."
-              : "I transform raw content into captivating stories, using advanced sound design and visual rhythms that reinforce the message."
+              ? "Posicionamos tu marca como la única opción lógica. Elevamos tu mensaje con diseño sonoro impecable y cortes clave que facilitan enormemente el trabajo de tu equipo de ventas."
+              : "We position your brand as the only logical choice. We elevate your message with flawless sound design and key cuts that greatly ease your sales team's job."
           },
           {
-            title: lang === "es" ? "Anuncios para Redes" : "Social Media Ads",
+            title: lang === "es" ? "Anuncios de Respuesta Directa" : "Direct Response Ads",
             icon: Rocket,
-            tags: ["Conversion", "Impact"],
+            tags: ["ROAS", "CPA Bajo"],
             details: lang === "es"
-              ? "Creación de anuncios diseñados específicamente para generar clics, combinando estética premium con llamados a la acción claros."
-              : "Creation of ads designed specifically to generate clicks, combining premium aesthetics with clear calls to action."
+              ? "Rentabilidad desde el primer día. Diseñamos creatividades psicológicamente preparadas para generar clics baratos, reduciendo tu costo de adquisición y disparando el ROAS."
+              : "Profitability from day one. We design creatives psychologically engineered for cheap clicks, lowering your acquisition cost and skyrocketing your ROAS."
           },
         ]
       },
       {
-        title: lang === "es" ? "Diseño Gráfico & Branding" : "Graphic Design & Branding",
+        title: lang === "es" ? "Identidad Visual para Escalar" : "Visual Identity to Scale",
         desc: lang === "es"
-          ? "Desarrollo de sistemas visuales coherentes que comunican la esencia de cada marca. Desde la arquitectura de un logo hasta la composición de assets digitales, cada píxel tiene un propósito estratégico."
-          : "Development of coherent visual systems that communicate the essence of each brand. From logo architecture to digital asset composition, every pixel has a strategic purpose.",
+          ? "Un negocio premium no se ve barato. Construimos una percepción de valor inquebrantable que te permite aumentar tus precios y separar a tu marca de la competencia."
+          : "A premium business doesn't look cheap. We build an unbreakable value perception that allows you to raise prices and distance your brand from the competition.",
         items: [
           {
-            title: lang === "es" ? "Identidad de Marca" : "Brand Identity",
+            title: lang === "es" ? "Branding de Autoridad" : "Authority Branding",
             icon: Monitor,
-            tags: ["Scalable", "Modern"],
+            tags: ["Premium", "Confianza"],
             details: lang === "es"
-              ? "Diseño de logotipos y guías de estilo completas que garantizan una presencia profesional y memorable en todos los canales."
-              : "Design of logos and complete style guides that guarantee a professional and memorable presence across all channels."
+              ? "Sistemas visuales corporativos que transmiten confianza total e instantánea para atraer al cliente ideal, el que valora tu trabajo y no pelea por el menor precio."
+              : "Corporate visual systems that transmit total and instant trust to attract your ideal client—the one who values your work and doesn't haggle over price."
           },
           {
-            title: lang === "es" ? "Assets Publicitarios" : "Advertising Assets",
+            title: lang === "es" ? "Assets Orientados a Conversión" : "Conversion Assets",
             icon: Layers,
-            tags: ["Layout", "Coherence"],
+            tags: ["Ventas", "Fricción Cero"],
             details: lang === "es"
-              ? "Banners, flyers y piezas gráficas para campañas digitales que mantienen la consistencia visual y maximizan el impacto."
-              : "Banners, flyers, and graphic pieces for digital campaigns that maintain visual consistency and maximize impact."
+              ? "Desde landing pages persuasivas hasta dossieres de venta impactantes. Diseñamos cada punto de contacto para eliminar la fricción y guiar al usuario directo a la compra."
+              : "From persuasive landing pages to striking sales decks. We design every touchpoint to eliminate friction and guide the user straight to purchasing."
           },
           {
-            title: lang === "es" ? "Miniaturas de Alta Conversión" : "High-Conversion Thumbnails",
+            title: lang === "es" ? "Miniaturas Clickeables" : "Clickable Thumbnails",
             icon: Play,
-            tags: ["CTR", "Composition"],
+            tags: ["CTR Alto", "Tráfico"],
             details: lang === "es"
-              ? "Diseño de miniaturas personalizadas que destacan en el feed, optimizadas para maximizar el porcentaje de clics (CTR)."
-              : "Design of custom thumbnails that stand out in the feed, optimized to maximize the click-through rate (CTR)."
+              ? "El 80% del éxito de un video está en el clic inicial. Implementamos gatillos psicológicos visuales para garantizar una Tasa de Clics (CTR) superior y acaparar el mercado."
+              : "80% of a video's success is in the initial click. We implement visual psychological triggers to guarantee a superior Click-Through Rate (CTR) and capture the market."
           },
         ]
       }
     ]
   } : {
     name: "Joaquin Lotumolo",
-    role: lang === "es" ? "Líder de Automatización e IA" : "Head of Automation & AI",
+    titlePrefix: lang === "es" ? "Escalando Operaciones con" : "Scaling Operations with",
+    role: lang === "es" ? "Arquitecto de Sistemas & IA para Negocios" : "Business Systems & AI Architect",
+    mainDesc: lang === "es"
+      ? "Multiplico la capacidad de tu equipo sin elevar costos de nómina. Automatizo tu captación, seguimiento y entrega de servicios para que tu empresa pueda escalar sin techo operativo."
+      : "I multiply your team's capability without raising payroll costs. I automate your lead capture, follow-up, and service delivery so your company can scale without an operational ceiling.",
     color: "#00ff80",
     gradient: "linear-gradient(135deg, rgba(0, 255, 128, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%)",
     sections: [
       {
-        title: lang === "es" ? "Sistemas de Automatización" : "Automation Systems",
+        title: lang === "es" ? "Sistemas de Operación Escalable" : "Scalable Operation Systems",
         desc: lang === "es"
-          ? "Arquitectura de flujos de trabajo que eliminan tareas repetitivas y liberan el potencial de los equipos. Integramos herramientas disjuntas en un ecosistema digital fluido y libre de errores."
-          : "Workflows architecture that eliminates repetitive tasks and unlocks team potential. We integrate disjointed tools into a fluid, error-free digital ecosystem.",
+          ? "Eliminamos los cuellos de botella manuales. Conectamos todas tus herramientas para que la información fluya al instante, evitando que los leads se enfríen y maximizando cada oportunidad."
+          : "We eliminate manual bottlenecks. We connect all your tools so information flows instantly, preventing leads from going cold and maximizing every opportunity.",
         items: [
           {
-            title: lang === "es" ? "Sincronización de Datos" : "Data Synchronization",
+            title: lang === "es" ? "Flujos de Lead Nurturing" : "Lead Nurturing Flows",
             icon: Layers,
-            tags: ["ETL", "Real-Time"],
+            tags: ["Seguimiento", "Conversión"],
             details: lang === "es"
-              ? "Implementación de flujos que mantienen CRMs, bases de datos y herramientas de gestión actualizadas automáticamente sin intervención humana."
-              : "Implementation of flows that keep CRMs, databases, and management tools automatically updated without human intervention."
+              ? "Sistemas infalibles. Desde que un prospecto impacta hasta que agenda una llamada, nuestra automatización lo nutre y precalifica 24/7 sin que tú muevas un dedo."
+              : "Infallible systems. From when a prospect arrives to when they book a call, our automation nurtures and pre-qualifies them 24/7 without you lifting a finger."
           },
           {
-            title: lang === "es" ? "Orquestación de Procesos" : "Process Orchestration",
+            title: lang === "es" ? "Operaciones Sin Fricción" : "Frictionless Operations",
             icon: Cpu,
-            tags: ["Advanced Logic", "Reliability"],
+            tags: ["Eficiencia", "Ahorro"],
             details: lang === "es"
-              ? "Diseño de flógicas complejas que conectan múltiples plataformas (ej. Make, Zapier, n8n) para automatizar el ciclo de vida completo de un cliente."
-              : "Design of complex logic connecting multiple platforms (e.g., Make, Zapier, n8n) to automate a customer's full lifecycle."
+              ? "Integramos tu CRM, pasarelas de pago y entrega de servicio. Reducimos el error humano a cero y devolvemos cientos de horas mensuales para que te enfoques en crecer."
+              : "We integrate your CRM, payment gateways, and service delivery. We reduce human error to zero and give back hundreds of hours monthly so you can focus on growing."
           },
           {
-            title: lang === "es" ? "Sistemas de Captación" : "Lead Capture Systems",
+            title: lang === "es" ? "Máquinas de Adquisición" : "Acquisition Machines",
             icon: Globe,
-            tags: ["Scalable", "Webhooks"],
+            tags: ["Volumen", "Pipelines"],
             details: lang === "es"
-              ? "Automatización de la entrada de leads desde cualquier fuente, con calificación automática y distribución instantánea al equipo de ventas."
-              : "Automation of lead entry from any source, with automatic qualification and instant distribution to the sales team."
+              ? "Infraestructura técnica para capturar, derivar y trazar automáticamente cada oportunidad de venta, asegurando que ni un solo dólar se quede sobre la mesa."
+              : "Technical infrastructure to automatically capture, route, and track every sales opportunity, ensuring not a single dollar is left on the table."
           },
         ]
       },
       {
-        title: lang === "es" ? "Agentes de Inteligencia Artificial" : "AI Intelligence Agents",
+        title: lang === "es" ? "Fuerza Laboral con Inteligencia Artificial" : "AI Powered Workforce",
         desc: lang === "es"
-          ? "Desarrollo de asistentes autónomos potenciados por LLMs de última generación. No son simples chatbots, sino agentes capaces de razonar, ejecutar tareas y mejorar la eficiencia operativa 24/7."
-          : "Development of autonomous assistants powered by latest-generation LLMs. Not just simple chatbots, but agents capable of reasoning, executing tasks, and improving operational efficiency 24/7.",
+          ? "Implementamos agentes de IA que actúan como empleados infatigables. Reducen radicalmente tus costos operativos y elevan la experiencia de tus clientes a un nivel inalcanzable para la competencia."
+          : "We implement AI agents that act as tireless employees. They radically reduce your operational costs and elevate your customer experience to a level unreachable by competitors.",
         items: [
           {
-            title: lang === "es" ? "Soporte al Cliente IA" : "AI Customer Support",
+            title: lang === "es" ? "Soporte Automatizado 24/7" : "24/7 Automated Support",
             icon: Bot,
-            tags: ["NLP", "Context-Aware"],
+            tags: ["Retención", "Satisfacción"],
             details: lang === "es"
-              ? "Agentes que resuelven consultas complejas utilizando la base de conocimiento de la empresa con un tono humano y preciso."
-              : "Agents that resolve complex inquiries using the company's knowledge base with a human and precise tone."
+              ? "Agentes entreados con tu base de conocimiento que resuelven el 80% de las dudas al instante, con un tono ultra-humano que protege y potencia la relación con tus clientes."
+              : "Agents trained on your knowledge base that resolve 80% of doubts instantly, with an ultra-human tone that protects and boosts your relationship with clients."
           },
           {
-            title: lang === "es" ? "Calificadores de Leads" : "AI Sales Qualifiers",
+            title: lang === "es" ? "SDRs Inteligentes (Closers)" : "Intelligent SDRs (Closers)",
             icon: Zap,
-            tags: ["Salesforce", "Smart"],
+            tags: ["Agendamiento", "Cualificación"],
             details: lang === "es"
-              ? "Asistentes que conversan con prospectos, filtran por presupuesto/interés y programan reuniones directamente en el calendario."
-              : "Assistants that talk to prospects, filter by budget/interest, and schedule meetings directly in the calendar."
+              ? "Asistentes de ventas que conversan en tiempo real, filtran a los curiosos e insertan prospectos cualificados y listos para comprar directamente en el calendario de tu equipo."
+              : "Sales assistants that converse in real-time, filter out tire-kickers, and insert qualified, ready-to-buy prospects right into your team's calendar."
           },
           {
-            title: lang === "es" ? "Sistemas Multi-Agente" : "Multi-Agent Networks",
+            title: lang === "es" ? "Agentes Operativos Específicos" : "Specific Operative Agents",
             icon: Sparkles,
-            tags: ["Collaboration", "AI"],
+            tags: ["Ventaja Injusta", "Estrategia"],
             details: lang === "es"
-              ? "Enjambres de agentes que colaboran entre sí para resolver problemas integrales, desde investigación de mercado hasta redacción de informes."
-              : "Swarms of agents collaborating to solve end-to-end problems, from market research to report writing."
+              ? "Redes de IA diseñadas a medida para investigar el mercado, redactar propuestas hiper personalizadas o analizar datos, dándole a tu agencia una ventaja competitiva masiva."
+              : "Custom-designed AI networks tailored to research the market, write hyper-personalized proposals, or analyze data, giving your agency a massive competitive edge."
           },
         ]
       }
@@ -198,11 +211,11 @@ const MemberPortfolio = () => {
 
             <BlurReveal>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-display">
-                <span className="opacity-80">{lang === "es" ? "Portfolio de" : "Portfolio of"}</span> <br />
+                <span className="opacity-80">{portfolioData.titlePrefix}</span> <br />
                 <AnimatedGradientText>{portfolioData.name}</AnimatedGradientText>
               </h1>
               <p className="text-xl text-white/60 max-w-2xl">
-                {portfolioData.role}. {lang === "es" ? "Explora mi trabajo y especialidades." : "Explore my work and specialties."}
+                {portfolioData.role}. {portfolioData.mainDesc}
               </p>
             </BlurReveal>
           </div>
@@ -263,6 +276,78 @@ const MemberPortfolio = () => {
                     </motion.div>
                   ))}
                 </motion.div>
+
+                {/* Showcase Videos (Only for Short-Form Section) */}
+                {portfolioData.showcaseVideos && sIdx === 0 && (
+                  <div className="mt-16 border-t border-white/5 pt-16">
+                    <div className="text-center mb-12">
+                      <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                        {lang === "es" ? "Máquinas de Retención (Short-Form)" : "Retention Machines (Short-Form)"}
+                      </h3>
+                      <p className="text-white/60 text-lg max-w-2xl mx-auto">
+                        {lang === "es"
+                          ? "Ejemplos de nuestro formato vertical diseñado para máxima conversión y watch time."
+                          : "Examples of our vertical format designed for maximum conversion and watch time."}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                      {portfolioData.showcaseVideos.map((video, idx) => (
+                        <motion.div
+                          key={video.id}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.2, duration: 0.6 }}
+                          className="flex justify-center"
+                        >
+                          {/* Phone Mockup Frame */}
+                          <div className="relative w-full max-w-[280px] aspect-[9/16] bg-zinc-900 rounded-[2.5rem] border-[6px] border-zinc-900 overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.2)] group ring-1 ring-white/10">
+                            {/* Notch */}
+                            <div className="absolute top-0 inset-x-0 h-6 bg-zinc-900 rounded-b-xl w-[40%] mx-auto z-20 flex justify-center items-center">
+                              <div className="w-12 h-1.5 bg-black/50 rounded-full"></div>
+                            </div>
+
+                            {/* Side Buttons */}
+                            <div className="absolute -left-[6px] top-24 w-1 h-12 bg-zinc-800 rounded-l-md pointer-events-none"></div>
+                            <div className="absolute -left-[6px] top-40 w-1 h-16 bg-zinc-800 rounded-l-md pointer-events-none"></div>
+                            <div className="absolute -right-[6px] top-32 w-1 h-16 bg-zinc-800 rounded-r-md pointer-events-none"></div>
+
+                            {/* Video Player placeholder / active */}
+                            <div className="w-full h-full bg-zinc-950 flex flex-col items-center justify-center relative">
+                              {video.videoUrl ? (
+                                <video
+                                  src={video.videoUrl}
+                                  className="w-full h-full object-cover"
+                                  loop
+                                  muted
+                                  playsInline
+                                  controls
+                                />
+                              ) : (
+                                <div className="text-center p-6 text-white/30 flex flex-col items-center gap-4 z-10">
+                                  <Play className="w-12 h-12 opacity-50" />
+                                  <p className="text-xs font-bold uppercase tracking-widest text-white/50">{lang === "es" ? "Espacio para Video" : "Video Placeholder"}</p>
+                                </div>
+                              )}
+                              {/* Overlay Gradient for depth */}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none z-0"></div>
+
+                              {/* Play button overlay if no video playing */}
+                              {!video.videoUrl && (
+                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                                  <div className="w-20 h-20 rounded-full bg-white/5 backdrop-blur-sm flex items-center justify-center border border-white/10">
+                                    <Play className="w-8 h-8 text-white/50 translate-x-0.5" />
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

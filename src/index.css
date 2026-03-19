@@ -106,9 +106,39 @@ body {
 
 html {
   color-scheme: dark;
-  scroll-behavior: auto; /* Changed from smooth to prevent clash with Lenis */
+  scroll-behavior: smooth; /* Re-enabled native smooth scroll */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* Beautiful custom scrollbar to make scrolling look premium without bugs */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+  border-left: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 217, 255, 0.4) 0%, rgba(0, 153, 204, 0.2) 100%);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(0, 217, 255, 0.8) 0%, rgba(0, 153, 204, 0.6) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Firefox custom scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 217, 255, 0.4) rgba(0, 0, 0, 0.8);
 }
 
 body.dark {

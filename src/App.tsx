@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
-import { ReactLenis } from '@studio-freight/react-lenis';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PortfolioFooter from "@/components/PortfolioFooter";
@@ -68,7 +67,7 @@ const AnimatedRoutes = () => {
 };
 
 const App = () => (
-  <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+  <>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
@@ -82,7 +81,7 @@ const App = () => (
         </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
-  </ReactLenis>
+  </>
 );
 
 export default App;

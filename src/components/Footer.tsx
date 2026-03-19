@@ -12,13 +12,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-12 mb-8 sm:mb-12">
           <div className="flex-1">
             <span className="font-display text-lg font-semibold" style={{ color: 'white' }}>
-              <img src="/LogoPNGBlancoChico.png" alt="Logix.ar Logo" className="h-5 sm:h-6 w-auto" loading="lazy" />
+              <img src="/LogoLogixPng.png" alt="Logix.ar Logo" className="h-5 sm:h-6 w-auto" loading="lazy" />
             </span>
             <p className="mt-3 text-sm max-w-xs leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
               {t("footer.tagline")}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             <div className="flex flex-col gap-3">
               <h3 className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#00aeff' }}>{t("footer.product")}</h3>
