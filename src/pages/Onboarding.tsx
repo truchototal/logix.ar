@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Building2, Link as LinkIcon, Sparkles, CheckCircle2, AlertCircle, Info } from "lucide-react";
+import { ArrowRight, Building2, Link as LinkIcon, Sparkles, CheckCircle2, AlertCircle, Info, MessageSquare, TrendingUp, Settings } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
@@ -13,6 +13,7 @@ const Onboarding = () => {
     const { lang } = useLanguage();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [automationType, setAutomationType] = useState('customer_service');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -52,6 +53,27 @@ const Onboarding = () => {
             toast.error(lang === "en" ? "Error sending information. Please try again." : "Error al enviar la información. Reintenta por favor.");
         }
     };
+
+    const automationTypesList = [
+        {
+            id: 'customer_service',
+            icon: <MessageSquare className="w-6 h-6" />,
+            title: lang === "en" ? "Customer Support" : "Atención al Cliente",
+            desc: lang === "en" ? "Answer FAQs and handle support 24/7" : "Responde dudas y atiende reclamos 24/7"
+        },
+        {
+            id: 'sales',
+            icon: <TrendingUp className="w-6 h-6" />,
+            title: lang === "en" ? "Sales & Gen" : "Ventas y Captación",
+            desc: lang === "en" ? "Qualify leads and book meetings" : "Califica leads, agenda reuniones y vende"
+        },
+        {
+            id: 'internal',
+            icon: <Settings className="w-6 h-6" />,
+            title: lang === "en" ? "Internal Process" : "Automatización Interna",
+            desc: lang === "en" ? "Automate repetitive tasks" : "Automatiza tareas internas"
+        }
+    ];
 
     const steps = [
         {
@@ -224,10 +246,42 @@ const Onboarding = () => {
                                             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[80px] -z-10 pointer-events-none" />
 
                                             <form onSubmit={handleSubmit} className="space-y-12">
-                                                {/* Section 1: Business */}
+                                                
+                                                {/* Section 1: Automation Type */}
                                                 <section className="space-y-6">
                                                     <h3 className="text-2xl font-semibold text-white border-b border-white/5 pb-4">
-                                                        {lang === "en" ? "Business Information" : "Información del negocio"}
+                                                        {lang === "en" ? "1. Select Automation Type" : "1. Tipo de Automatización"}
+                                                    </h3>
+                                                    <input type="hidden" name="automation_type" value={automationType} />
+                                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                        {automationTypesList.map((type) => (
+                                                            <div
+                                                                key={type.id}
+                                                                onClick={() => setAutomationType(type.id)}
+                                                                className={`cursor-pointer rounded-2xl p-5 border transition-all duration-300 relative group ${
+                                                                    automationType === type.id 
+                                                                    ? 'bg-cyan-500/10 border-cyan-500/50 shadow-[0_0_30px_rgba(0,217,255,0.15)]' 
+                                                                    : 'bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/10'
+                                                                }`}
+                                                            >
+                                                                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 transition-colors ${
+                                                                    automationType === type.id
+                                                                    ? 'bg-cyan-500/20 text-cyan-400'
+                                                                    : 'bg-white/10 text-white/70 group-hover:text-white'
+                                                                }`}>
+                                                                    {type.icon}
+                                                                </div>
+                                                                <h4 className="text-base font-semibold text-white mb-1">{type.title}</h4>
+                                                                <p className="text-xs text-white/50">{type.desc}</p>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </section>
+
+                                                {/* Section 2: Business */}
+                                                <section className="space-y-6">
+                                                    <h3 className="text-2xl font-semibold text-white border-b border-white/5 pb-4">
+                                                        {lang === "en" ? "2. Business Information" : "2. Información del negocio"}
                                                     </h3>
                                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                                         <div className="space-y-2">
@@ -249,10 +303,10 @@ const Onboarding = () => {
                                                     </div>
                                                 </section>
 
-                                                {/* Section 2: Contact */}
+                                                {/* Section 3: Contact */}
                                                 <section className="space-y-6">
                                                     <h3 className="text-2xl font-semibold text-white border-b border-white/5 pb-4">
-                                                        {lang === "en" ? "Contact Information" : "Información de contacto"}
+                                                        {lang === "en" ? "3. Contact Information" : "3. Información de contacto"}
                                                     </h3>
                                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                                         <div className="space-y-2">
@@ -270,24 +324,85 @@ const Onboarding = () => {
                                                     </div>
                                                 </section>
 
-                                                {/* Section 3: AI Training */}
+                                                {/* Section 4: Dynamic fields based on Automation Type */}
                                                 <section className="space-y-6">
                                                     <h3 className="text-2xl font-semibold text-white border-b border-white/5 pb-4">
-                                                        {lang === "en" ? "AI Training Data" : "Información para la IA"}
+                                                        {lang === "en" ? "4. Technical Details" : "4. Detalles Técnicos"}
                                                     </h3>
-                                                    <div className="space-y-8">
-                                                        <div className="space-y-2">
-                                                            <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Business Services *" : "Servicios del negocio *"}</label>
-                                                            <textarea name="services" required rows={2} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "List your core services..." : "Enumera tus servicios principales..."} />
-                                                        </div>
-                                                        <div className="space-y-2">
-                                                            <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Frequently Asked Questions" : "Preguntas frecuentes de clientes"}</label>
-                                                            <textarea name="faqs" rows={3} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "What do your customers usually ask?" : "¿Qué suelen preguntar tus clientes y qué deberíamos responder?"} />
-                                                        </div>
-                                                        <div className="space-y-2">
-                                                            <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Business Hours *" : "Horarios de atención *"}</label>
-                                                            <input name="hours" required type="text" className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors" placeholder="Lunes a Viernes de 9 a 18hs" />
-                                                        </div>
+                                                    <div className="space-y-8 relative">
+                                                        <AnimatePresence mode="wait">
+                                                            {automationType === 'customer_service' && (
+                                                                <motion.div
+                                                                    key="customer_service"
+                                                                    initial={{ opacity: 0, y: 10 }}
+                                                                    animate={{ opacity: 1, y: 0 }}
+                                                                    exit={{ opacity: 0, y: -10 }}
+                                                                    transition={{ duration: 0.3 }}
+                                                                    className="space-y-8"
+                                                                >
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Platforms to Connect *" : "Plataformas a conectar *"}</label>
+                                                                        <input name="platforms" required type="text" className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors" placeholder={lang === "en" ? "WhatsApp, Instagram, Website..." : "WhatsApp, Instagram, Web..."} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Tone of Voice *" : "Tono de Voz del Bot *"}</label>
+                                                                        <input name="tone_of_voice" required type="text" className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors" placeholder={lang === "en" ? "Professional, Friendly, Casual..." : "Profesional, Amigable, Casual..."} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Frequently Asked Questions" : "Preguntas Frecuentes (FAQs)"}</label>
+                                                                        <textarea name="faqs" rows={3} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "What do your customers usually ask?" : "¿Qué suelen preguntar tus clientes?"} />
+                                                                    </div>
+                                                                </motion.div>
+                                                            )}
+
+                                                            {automationType === 'sales' && (
+                                                                <motion.div
+                                                                    key="sales"
+                                                                    initial={{ opacity: 0, y: 10 }}
+                                                                    animate={{ opacity: 1, y: 0 }}
+                                                                    exit={{ opacity: 0, y: -10 }}
+                                                                    transition={{ duration: 0.3 }}
+                                                                    className="space-y-8"
+                                                                >
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "CRM/Tools to Connect *" : "CRM / Herramientas a conectar *"}</label>
+                                                                        <input name="crm_tools" required type="text" className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors" placeholder={lang === "en" ? "HubSpot, Salesforce, Google Sheets..." : "HubSpot, Clientify, Google Sheets..."} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Lead Qualification *" : "Calificación de Leads *"}</label>
+                                                                        <textarea name="lead_qualification" required rows={2} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "What questions should the bot ask to qualify a lead?" : "¿Qué preguntas debe hacer el bot para saber si es un buen cliente?"} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Sales Pitch / Value Prop" : "Propuesta de Valor / Pitch de Ventas"}</label>
+                                                                        <textarea name="sales_pitch" rows={2} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "Why should they buy from you?" : "¿Por qué deberían comprarte? ¿Qué ofreces?"} />
+                                                                    </div>
+                                                                </motion.div>
+                                                            )}
+
+                                                            {automationType === 'internal' && (
+                                                                <motion.div
+                                                                    key="internal"
+                                                                    initial={{ opacity: 0, y: 10 }}
+                                                                    animate={{ opacity: 1, y: 0 }}
+                                                                    exit={{ opacity: 0, y: -10 }}
+                                                                    transition={{ duration: 0.3 }}
+                                                                    className="space-y-8"
+                                                                >
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Current Workflow *" : "Flujo de trabajo actual *"}</label>
+                                                                        <textarea name="current_workflow" required rows={3} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "Explain step by step how you currently do this..." : "Explica paso a paso cómo hacen esto actualmente en tu empresa..."} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Apps to Automate *" : "Aplicaciones involucradas *"}</label>
+                                                                        <input name="apps" required type="text" className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors" placeholder={lang === "en" ? "Gmail, Trello, Slack, Notion..." : "Gmail, Trello, Slack, Google Drive..."} />
+                                                                    </div>
+                                                                    <div className="space-y-2">
+                                                                        <label className="text-sm font-medium text-white/60 uppercase tracking-wider">{lang === "en" ? "Desired Outcome" : "Resultado Deseado"}</label>
+                                                                        <textarea name="desired_outcome" rows={2} className="w-full bg-transparent border-b border-white/20 pb-2 text-white placeholder-white/20 focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder={lang === "en" ? "What exactly do you want the automation to do for you?" : "¿Qué te gustaría automatizar exactamente?"} />
+                                                                    </div>
+                                                                </motion.div>
+                                                            )}
+                                                        </AnimatePresence>
                                                     </div>
                                                 </section>
 
