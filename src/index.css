@@ -1,0 +1,281 @@
+@import url('/fonts/aspekta.css');
+@import url('https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800|space-grotesk:400,500,600,700');
+
+/* Force Aspekta on everything */
+html, body, #root, * {
+  font-family: 'Aspekta', 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   THEME SYSTEM — Light & Dark
+   ============================================ */
+
+@layer base {
+  :root,
+  :root[data-theme="light"] {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --card-dark: 0 0% 7%;
+    --card-dark-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --surface: #FFFFFF;
+    --surface-secondary: #FAFAFA;
+    --surface-elevated: #FFFFFF;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --text-muted: #9CA3AF;
+    --border-color: #E5E7EB;
+    --border-hover: #000000;
+    --card-bg: #111111;
+    --card-text: #FFFFFF;
+    --card-text-muted: #9CA3AF;
+    --input-bg: #F9FAFB;
+    --nav-bg: rgba(255, 255, 255, 0.92);
+    --nav-border: #E5E7EB;
+    --footer-bg: #FAFAFA;
+    --icon-bg: #F3F4F6;
+    --hover-bg: #F3F4F6;
+    --spinner-track: #E5E7EB;
+    --spinner-active: #000000;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
+
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 93%;
+    --card-dark: 0 0% 100%;
+    --card-dark-foreground: 0 0% 7%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 93%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 0% 100%;
+    --radius: 0.75rem;
+
+    /* Custom tokens (inverted) */
+    --surface: #0A0A0A;
+    --surface-secondary: #111111;
+    --surface-elevated: #1A1A1A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+    --border-color: #27272A;
+    --border-hover: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --card-text: #000000;
+    --card-text-muted: #666666;
+    --input-bg: #18181B;
+    --nav-bg: rgba(10, 10, 10, 0.92);
+    --nav-border: #27272A;
+    --footer-bg: #111111;
+    --icon-bg: #27272A;
+    --hover-bg: #27272A;
+    --spinner-track: #27272A;
+    --spinner-active: #FFFFFF;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 0 0% 100%;
+
+    color-scheme: dark;
+  }
+}
+
+/* Smooth theme transitions */
+html, body {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body, nav, footer, section, div, a, button, input, textarea, select {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+* { scrollbar-width: thin; scrollbar-color: var(--border-color) var(--surface); }
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-7 py-3 rounded-full font-semibold text-sm transition-all duration-300;
+    background: var(--text-primary);
+    color: var(--surface);
+    position: relative;
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.08);
+  }
+  :root[data-theme="light"] .btn-primary:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-secondary {
+    @apply px-7 py-3 rounded-full font-semibold text-sm transition-all duration-300;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    background-color: transparent;
+  }
+  .btn-secondary:hover {
+    background-color: var(--hover-bg);
+    border-color: var(--text-muted);
+    transform: translateY(-1px);
+  }
+
+  /* Theme-aware card (dark cards in light mode, white cards in dark mode) */
+  .card-contrast {
+    background-color: var(--card-bg);
+    color: var(--card-text);
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  .card-contrast:hover {
+    border-color: rgba(128, 128, 128, 0.15);
+  }
+  .card-contrast .card-muted {
+    color: var(--card-text-muted);
+  }
+
+  /* Theme-aware surface card */
+  .card-surface {
+    background-color: var(--surface-elevated);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  .card-surface:hover {
+    border-color: var(--text-muted);
+    box-shadow: 0 0 0 1px var(--border-color);
+  }
+
+  /* Linear-style hero glow */
+  .hero-glow {
+    position: relative;
+  }
+  .hero-glow::before {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(100, 100, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  :root[data-theme="dark"] .hero-glow::before {
+    background: radial-gradient(ellipse, rgba(130, 130, 255, 0.07) 0%, transparent 70%);
+  }
+
+  /* Subtle gradient line divider (Linear-style) */
+  .gradient-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--border-color) 50%, transparent 100%);
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .font-display, .font-body, .font-aspekta {
+    font-family: 'Aspekta', 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  }
+  .aspekta-bold { font-family: 'Aspekta' !important; font-weight: 800; }
+  .aspekta-semibold { font-family: 'Aspekta' !important; font-weight: 600; }
+  .aspekta-medium { font-family: 'Aspekta' !important; font-weight: 500; }
+  .aspekta-regular { font-family: 'Aspekta'; font-weight: 400; }
+  .aspekta-light { font-family: 'Aspekta'; font-weight: 300; }
+
+  @media (pointer: coarse) {
+    a, button { min-height: 44px; min-width: 44px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
