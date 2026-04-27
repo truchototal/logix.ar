@@ -19,6 +19,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Equipo = lazy(() => import("./pages/Equipo"));
+const Planes = lazy(() => import("./pages/Planes"));
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const AnimatedRoutes = () => {
           <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/equipo" element={<PageTransition><Equipo /></PageTransition>} />
+          <Route path="/planes" element={<PageTransition><Planes /></PageTransition>} />
           <Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
           <Route path="/terms-of-service" element={<PageTransition><TermsOfService /></PageTransition>} />
           <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />

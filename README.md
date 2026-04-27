@@ -72,6 +72,7 @@ Para arrancar el servidor en modo desarrollo:
 ```bash
 npm run dev
 ```
+
 La página estará disponible en `http://localhost:8080/` (o en su defecto el puerto provisto por la terminal).
 
 ### Construcción para Producción
@@ -92,7 +93,7 @@ npm run build
 
 ## 🤝 Contacto y Soporte
 
-Si no tenés sistema, estás perdiendo clientes todos los días. 
+Si no tenés sistema, estás perdiendo clientes todos los días.
 ¿Hablamos?
 
 - 📧 **Correo Oficial:** [logixarcompany@gmail.com](mailto:logixarcompany@gmail.com)

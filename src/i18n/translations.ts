@@ -209,4 +209,110 @@ export const translations: Translations = {
     en: "We keep improving our systems every day so your business keeps growing.",
     es: "Seguimos mejorando nuestros sistemas todos los días para que tu negocio siga creciendo.",
   },
+
+  // Nav — Planes
+  "nav.plans": { en: "Plans", es: "Planes" },
+
+  // Planes page — Hero
+  "plans.hero.badge": { en: "TRANSPARENT PRICING", es: "PRECIOS TRANSPARENTES" },
+  "plans.hero.title": { en: "Choose the plan that fits your business", es: "Elegí el plan que se adapta a tu negocio" },
+  "plans.hero.subtitle": {
+    en: "From your first professional website to a complete enterprise ecosystem. No hidden fees, no surprises.",
+    es: "Desde tu primera web profesional hasta un ecosistema empresarial completo. Sin costos ocultos, sin sorpresas.",
+  },
+
+  // Planes page — How we do it
+  "plans.how.label": { en: "HOW WE DO IT", es: "CÓMO LO HACEMOS" },
+  "plans.how.title": { en: "A process designed to deliver results", es: "Un proceso diseñado para entregar resultados" },
+  "plans.how.1.title": { en: "Discovery", es: "Descubrimiento" },
+  "plans.how.1.desc": { en: "We analyze your business, understand your audience, and define the strategy.", es: "Analizamos tu negocio, entendemos tu audiencia y definimos la estrategia." },
+  "plans.how.2.title": { en: "Design & Build", es: "Diseño y Desarrollo" },
+  "plans.how.2.desc": { en: "We create your custom solution with the best technology and design.", es: "Creamos tu solución a medida con la mejor tecnología y diseño." },
+  "plans.how.3.title": { en: "Launch & Train", es: "Lanzamiento y Capacitación" },
+  "plans.how.3.desc": { en: "We deploy everything and train your team to use it effectively.", es: "Desplegamos todo y capacitamos a tu equipo para usarlo eficazmente." },
+  "plans.how.4.title": { en: "Optimize & Grow", es: "Optimizar y Crecer" },
+  "plans.how.4.desc": { en: "We monitor, improve, and scale your system month after month.", es: "Monitoreamos, mejoramos y escalamos tu sistema mes a mes." },
+
+  // Planes page — Plans section
+  "plans.section.label": { en: "OUR PLANS", es: "NUESTROS PLANES" },
+  "plans.section.title": { en: "Invest in your growth", es: "Invertí en tu crecimiento" },
+  "plans.section.subtitle": {
+    en: "Every plan includes development, deployment, and ongoing support.",
+    es: "Cada plan incluye desarrollo, despliegue y soporte continuo.",
+  },
+
+  // Plan Start
+  "plans.start.name": { en: "Start", es: "Start" },
+  "plans.start.tagline": { en: "Professional presence", es: "Presencia profesional" },
+  "plans.start.quote": { en: "Your business automated from day one", es: "Tu negocio automatizado desde el primer día" },
+  "plans.start.ideal": { en: "Ideal for: SMBs, local businesses, small teams.", es: "Ideal para: PYMEs, negocios locales, autónomos con equipo pequeño." },
+  "plans.start.price.setup": { en: "USD $100 – $500", es: "USD $100 – $500" },
+  "plans.start.price.monthly": { en: "+ USD $30/mo", es: "+ USD $30/mes" },
+  "plans.start.f1": { en: "1 custom application", es: "1 aplicación a medida" },
+  "plans.start.f2": { en: "WhatsApp or Web integration", es: "Integración con WhatsApp o Web" },
+  "plans.start.f3": { en: "Basic database", es: "Base de datos básica" },
+  "plans.start.f4": { en: "30 days of support", es: "30 días de soporte" },
+  "plans.start.f5": { en: "1 revision/improvement per month", es: "1 revisión/mejora al mes" },
+  "plans.start.f6": { en: "Basic integrations", es: "Integraciones básicas" },
+
+  // Plan Pro
+  "plans.pro.name": { en: "Pro", es: "Pro" },
+  "plans.pro.tagline": { en: "Scale without hiring more people", es: "Escala sin contratar más gente" },
+  "plans.pro.quote": { en: "Automate your processes and multiply results", es: "Automatiza tus procesos y multiplica resultados" },
+  "plans.pro.ideal": { en: "Ideal for: Growing companies with costly repetitive processes.", es: "Ideal para: Empresas en crecimiento con procesos repetitivos costosos." },
+  "plans.pro.price.setup": { en: "USD $500 – $1,000", es: "USD $500 – $1.000" },
+  "plans.pro.price.monthly": { en: "+ USD $100/mo", es: "+ USD $100/mes" },
+  "plans.pro.f1": { en: "Up to 3 connected applications", es: "Hasta 3 aplicaciones conectadas entre sí" },
+  "plans.pro.f2": { en: "24/7 sales agent with knowledge base", es: "Agente de ventas 24/7 con base de conocimiento" },
+  "plans.pro.f3": { en: "Real-time metrics dashboard", es: "Dashboard con métricas en tiempo real" },
+  "plans.pro.f4": { en: "Automatic lead scoring system", es: "Sistema de calificación de leads automático" },
+  "plans.pro.f5": { en: "CRM/ERP integration", es: "Integración con sistemas actuales (CRM, ERP, etc.)" },
+  "plans.pro.f6": { en: "2 revisions/improvements per month", es: "2 revisiones/mejoras al mes" },
+  "plans.pro.f7": { en: "Priority support (15 days)", es: "Soporte prioritario 15 días" },
+
+  // Plan Enterprise
+  "plans.enterprise.name": { en: "Enterprise", es: "Enterprise" },
+  "plans.enterprise.tagline": { en: "Complete business infrastructure", es: "Infraestructura empresarial completa" },
+  "plans.enterprise.quote": { en: "The power of a big company, at SMB pricing", es: "El poder de una empresa grande, al precio de una PYME" },
+  "plans.enterprise.ideal": { en: "Ideal for: Mid-size companies with teams and high operational volume.", es: "Ideal para: Empresas medianas con equipos y alto volumen operativo." },
+  "plans.enterprise.price.setup": { en: "USD $1,500 – $2,000", es: "USD $1.500 – $2.000" },
+  "plans.enterprise.price.monthly": { en: "+ USD $300/mo", es: "+ USD $300/mes" },
+  "plans.enterprise.f1": { en: "Complete ecosystem of interconnected apps", es: "Ecosistema completo de apps interconectadas" },
+  "plans.enterprise.f2": { en: "AI agents per department", es: "Agentes IA por departamento (ventas, soporte, contabilidad)" },
+  "plans.enterprise.f3": { en: "Knowledge base with your own docs", es: "Base de conocimiento con documentos y manuales propios" },
+  "plans.enterprise.f4": { en: "Branded admin panel", es: "Panel de administración con tu marca" },
+  "plans.enterprise.f5": { en: "Advanced API integrations", es: "Integraciones avanzadas con APIs externas" },
+  "plans.enterprise.f6": { en: "Unlimited revisions + monthly strategy meeting", es: "Revisiones ilimitadas + reunión mensual de estrategia" },
+  "plans.enterprise.f7": { en: "Permanent priority support", es: "Soporte prioritario permanente" },
+
+  // Planes page — Testimonials
+  "plans.testimonials.label": { en: "CLIENT TESTIMONIALS", es: "TESTIMONIOS DE CLIENTES" },
+  "plans.testimonials.title": { en: "What our clients say", es: "Lo que dicen nuestros clientes" },
+  "plans.testimonials.1.text": {
+    en: "Since we implemented Logix, we stopped losing clients from unanswered messages. Everything runs on autopilot now.",
+    es: "Desde que implementamos Logix dejamos de perder clientes por mensajes sin responder. Todo funciona en piloto automático.",
+  },
+  "plans.testimonials.1.name": { en: "Pet's Shop", es: "Pet's Shop" },
+  "plans.testimonials.1.role": { en: "Plottier", es: "Plottier" },
+  "plans.testimonials.2.text": {
+    en: "The booking system they built for us saves us hours every week. Our clients love being able to book online.",
+    es: "El sistema de turnos que nos armaron nos ahorra horas cada semana. Nuestros clientes aman poder reservar online.",
+  },
+  "plans.testimonials.2.name": { en: "Concesionario", es: "Concesionario" },
+  "plans.testimonials.2.role": { en: "Neuquén", es: "Neuquén" },
+  "plans.testimonials.3.text": {
+    en: "We connected 3 apps and now our sales pipeline is completely automated. Best investment we made this year.",
+    es: "Conectamos 3 apps y ahora nuestro embudo de ventas está completamente automatizado. La mejor inversión del año.",
+  },
+  "plans.testimonials.3.name": { en: "E-commerce Agency", es: "Agencia de E-commerce" },
+  "plans.testimonials.3.role": { en: "Pro Plan Client", es: "Cliente Plan Pro" },
+
+  // Planes page — CTA
+  "plans.cta.title": { en: "Ready to scale your business?", es: "¿Listo para escalar tu negocio?" },
+  "plans.cta.subtitle": {
+    en: "Book a free call and let's find the perfect plan for you.",
+    es: "Agendá una llamada gratuita y encontremos el plan perfecto para vos.",
+  },
+  "plans.cta.button": { en: "Book a free call", es: "Agendar llamada gratuita" },
+  "plans.cta.secondary": { en: "Or write us directly", es: "O escribinos directamente" },
 };
