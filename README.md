@@ -1,105 +1,120 @@
-<div align="center">
-  <h1>⚡ Logix</h1>
-  <p><strong>Sistemas que consiguen clientes para tu negocio, automáticamente.</strong></p>
-  <p>Construimos sistemas completos que organizan, automatizan y convierten: web, sistema de turnos, automatización con WhatsApp y más.</p>
+# ⚡ Logix.ar — Sistema Full-Stack
 
-  <p>
-    <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
-    <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" /></a>
-    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
-    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
-    <a href="https://supabase.com/"><img src="https://img.shields.io/badge/Supabase-181818?style=for-the-badge&logo=supabase&logoColor=3ECF8E" alt="Supabase" /></a>
-  </p>
-</div>
+> Sistema de adquisición automática de clientes para negocios reales.
 
-<br />
+## 🏗️ Arquitectura
 
-## 🚀 Misión
+```
+logix-system/
+├── frontend/          → React + Vite + TypeScript (Página web)
+├── backend/           → Node.js + Express + TypeScript (API)
+├── database/          → PostgreSQL / Supabase (Esquemas + Migraciones)
+└── .agents/skills/    → Skills de IA para Logix
+```
 
-Nacimos en Neuquén, Argentina, con una misión clara: **darle a cada negocio las herramientas que necesita para crecer profesionalmente, sin perder tiempo ni oportunidades.**
+### Flujo de datos
 
-No vendemos tecnología. Vendemos resultados. Cada sistema que construimos está diseñado para generar clientes reales. Llenamos tu agenda de clientes automáticamente combinando programación, integraciones y estrategia de negocios.
-
-## 💼 Soluciones
-
-En Logix trabajamos sobre tres pilares fundamentales para tu crecimiento:
-
-1. **Desarrollo y Sistemas:** Creación de tu página web profesional y sistema de reservas.
-2. **Integraciones y Automatización:** Conexión de herramientas como WhatsApp y Make/n8n para seguimiento avanzado.
-3. **Estrategia y Crecimiento:** Marketing, análisis de métricas y crecimiento continuo.
+```
+USUARIO → FRONTEND (React) → BACKEND (Express API) → DATABASE (Supabase)
+                                    ↓
+                              AUTOMATIONS (n8n / Make)
+                                    ↓
+                              WhatsApp / Instagram
+```
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🚀 Quick Start
 
-El proyecto está desarrollado utilizando herramientas modernas y optimizadas para máxima velocidad y eficiencia:
+### Requisitos
+- Node.js >= 18
+- npm >= 9
 
-- **Frontend:** React 18, Vite
-- **Lenguaje:** TypeScript
-- **Estilos:** Tailwind CSS, Shadcn UI
-- **Animaciones:** Framer Motion
-- **Base de Datos / Backend:** Supabase
-- **Enrutamiento:** React Router DOM
-
-## ⚙️ Cómo ejecutar el proyecto
-
-Clona el repositorio e instala las dependencias para empezar a trabajar de inmediato.
-
+### Instalación
 ```bash
-# 1. Clonar el repositorio
-git clone https://github.com/truchototal/logix.ar.git
-
-# 2. Navegar a la carpeta del proyecto
-cd "Pagina Web" # o el nombre de tu carpeta configurada
-
-# 3. Instalar dependencias
-npm install
+npm install          # Instala dependencias de frontend y backend
 ```
 
-### Configuración de Entorno
-
-Debes crear un archivo `.env` en la raíz del proyecto usando `.env.example` como referencia, e incluir las variables necesarias para los servicios como Supabase:
-
-```env
-VITE_SUPABASE_URL=tu_url_de_supabase
-VITE_SUPABASE_ANON_KEY=tu_anon_key_de_supabase
-```
-
-### Desarrollo Local
-
-Para arrancar el servidor en modo desarrollo:
-
+### Desarrollo
 ```bash
-npm run dev
+# Frontend (puerto 8080)
+npm run dev:frontend
+
+# Backend (puerto 3001)
+npm run dev:backend
+
+# Ambos juntos
+npm run dev:all
 ```
 
-La página estará disponible en `http://localhost:8080/` (o en su defecto el puerto provisto por la terminal).
-
-### Construcción para Producción
-
-Para generar el build optimizado de la aplicación:
-
+### Build
 ```bash
-npm run build
+npm run build        # Build de producción del frontend
 ```
 
-## 📂 Organización del Proyecto
+---
 
-- `/src/components/`: Componentes reutilizables de UI (incluyendo Shadcn).
-- `/src/pages/`: Las pantallas principales (Nosotros, Contacto, Equipo, etc.).
-- `/src/contexts/`: Manejo de estados globales (Idioma - `LanguageContext`, Tema global).
-- `/src/i18n/`: Archivos para el manejo de idiomas (inglés / español) como `translations.ts`.
-- `/src/services/` y `/src/lib/`: Lógica de integración con servicios externos como Supabase.
+## 📁 Estructura Detallada
 
-## 🤝 Contacto y Soporte
+### Frontend (`frontend/`)
+| Carpeta | Descripción |
+|---------|-------------|
+| `src/components/layout/` | Navbar, Footer, PageTransition |
+| `src/components/shared/` | Componentes reutilizables |
+| `src/components/ui/` | shadcn/ui components |
+| `src/pages/` | Páginas de la web |
+| `src/services/` | Llamadas al API backend |
+| `src/contexts/` | Theme, Language providers |
+| `src/hooks/` | Custom React hooks |
+| `src/i18n/` | Traducciones ES/EN |
+| `src/lib/` | Utilidades y animaciones |
 
-Si no tenés sistema, estás perdiendo clientes todos los días.
-¿Hablamos?
+### Backend (`backend/`)
+| Carpeta | Descripción |
+|---------|-------------|
+| `src/config/` | Variables de entorno, conexión DB |
+| `src/controllers/` | Request handlers |
+| `src/models/` | Modelos de datos (Zod schemas) |
+| `src/routes/` | Definición de rutas API |
+| `src/middleware/` | CORS, error handling |
+| `src/services/` | Lógica de negocio |
+| `src/utils/` | Funciones helper |
 
-- 📧 **Correo Oficial:** [logixarcompany@gmail.com](mailto:logixarcompany@gmail.com)
-- 📍 **Ubicación:** Neuquén, Argentina
+### Database (`database/`)
+| Archivo | Descripción |
+|---------|-------------|
+| `schema.sql` | Schema principal de Supabase |
+| `migrations/` | Migraciones ordenadas |
+| `seeds/` | Datos iniciales para desarrollo |
 
-<br/>
-<div align="center">
-  <p><i>"Sistemas reales que consiguen clientes para negocios locales."</i></p>
-</div>
+---
+
+## 🔌 API Endpoints
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| `GET` | `/api/health` | Health check |
+| `POST` | `/api/contact` | Nuevo lead (formulario web) |
+| `GET` | `/api/contact` | Listar leads (dashboard) |
+| `PATCH` | `/api/contact/:id/status` | Actualizar estado del lead |
+
+---
+
+## 🎯 Filosofía Logix
+
+Todo lo que se construye debe responder a una pregunta:
+
+> **¿Esto genera más clientes o no?**
+
+### Prioridades
+1. Generación de leads
+2. Conversión a turnos/ventas
+3. Automatización
+4. Experiencia del usuario
+5. Tecnología
+
+---
+
+## 📄 Licencia
+
+Privado — Logix.ar © 2026
