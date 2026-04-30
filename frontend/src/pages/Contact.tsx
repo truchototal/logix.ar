@@ -34,7 +34,7 @@ const Contact = () => {
 
   const info = [
     { icon: Mail, title: lang === "en" ? "Email" : "Correo", value: "logixarcompany@gmail.com", link: "mailto:logixarcompany@gmail.com" },
-    { icon: Phone, title: lang === "en" ? "Phone" : "Teléfono", value: "+54 9 29 9603-2898", link: "tel:+5419296032898" },
+    { icon: Phone, title: lang === "en" ? "Phone" : "Teléfono", value: "+54 9 29 9570 7006 / +54 9 29 9620 2494", link: "tel:+5492995707006" },
     { icon: MapPin, title: lang === "en" ? "Location" : "Ubicación", value: "Neuquén, Argentina", link: "#" },
   ];
 
