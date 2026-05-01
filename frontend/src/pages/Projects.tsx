@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, Variants } from "framer-motion";
 import Layout from "@/components/layout/Layout";
-import { ArrowRight, PawPrint, Dumbbell, Scissors } from "lucide-react";
+import { ArrowRight, PawPrint, Car, Scissors } from "lucide-react";
 import BlurReveal from "@/components/shared/BlurReveal";
 import { Link } from "react-router-dom";
 
@@ -26,7 +26,7 @@ const Projects = () => {
       link: "https://petslifenqn.com.ar"
     },
     {
-      icon: Dumbbell, title: lang === 'es' ? "Ambrosino Automotores" : "Ambrosino Automotores", type: lang === 'es' ? "Concesionario" : "Dealership",
+      icon: Car, title: lang === 'es' ? "Ambrosino Automotores" : "Ambrosino Automotores", type: lang === 'es' ? "Concesionario" : "Dealership",
       desc: lang === 'es' ? "Implementamos web profesional con sistema de manejo de publicaciones. El negocio pasó de coordinar todo por mensajes a tener un sistema automático que organiza su agenda." : "Complete system: website with class info, schedules, and publication management system. WhatsApp for automatic inquiries about pricing and availability.",
       result: lang === 'es' ? "Nuevos clientes y ventas" : "New clients and sales",
       link: "https://ambrosino-motors.vercel.app/"
@@ -37,7 +37,7 @@ const Projects = () => {
     <Layout>
       <div className="relative w-full min-h-full" style={{ backgroundColor: 'var(--surface)' }}>
         {/* Hero */}
-        <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center pt-16">
+        <section className="relative page-hero flex items-center pb-20">
           <div className="container mx-auto px-4 sm:px-6 relative text-center max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               className="inline-block mb-6 px-4 py-2 rounded-full" style={{ border: '1px solid var(--border-color)' }}>

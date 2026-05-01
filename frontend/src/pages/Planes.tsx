@@ -3,8 +3,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, type Variants } from "framer-motion";
 import {
   ArrowRight, Check, Zap, Crown, Building2,
-  Quote, MessageCircle, Sparkles, Shield, Clock,
-  ChevronDown
+  Quote, MessageCircle, Shield, Clock, Sparkles,
+  ChevronDown, Search, Wrench, Rocket, Users,
 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import BlurReveal from "@/components/shared/BlurReveal";
@@ -12,24 +12,12 @@ import { useState } from "react";
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0 } },
 };
 
 const staggerItem: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
 };
 
 const Planes = () => {
@@ -90,18 +78,59 @@ const Planes = () => {
     { textKey: "plans.testimonials.2.text", nameKey: "plans.testimonials.2.name", roleKey: "plans.testimonials.2.role" },
   ];
 
+  const whoFor = [
+    {
+      plan: t("plans.start.name"), accentSolid: "#3B82F6",
+      title: lang === 'es' ? 'Negocios que están empezando online' : 'Businesses starting online',
+      desc: lang === 'es'
+        ? 'Si tu negocio no tiene presencia web profesional o dependés de WhatsApp o Instagram para conseguir clientes, Start es tu punto de partida. En 1–2 semanas tenés una base que trabaja para vos.'
+        : "If your business has no professional web presence or relies on WhatsApp and Instagram to get clients, Start is your entry point. In 1–2 weeks you have a foundation that works for you.",
+      examples: lang === 'es' ? 'Barberías · Salones de belleza · Pet shops · Consultorios · Talleres' : 'Barbershops · Salons · Pet shops · Clinics · Workshops',
+    },
+    {
+      plan: t("plans.pro.name"), accentSolid: "#A855F7",
+      title: lang === 'es' ? 'Negocios con flujo constante de clientes' : 'Businesses with steady client flow',
+      desc: lang === 'es'
+        ? 'Si ya tenés clientes pero perdés horas respondiendo mensajes y coordinando turnos, Pro automatiza ese trabajo. El bot de WhatsApp atiende 24/7 y el sistema de turnos se llena solo.'
+        : "If you already have clients but waste hours answering messages and scheduling, Pro automates that work. The WhatsApp bot runs 24/7 and the booking system fills itself.",
+      examples: lang === 'es' ? 'Gimnasios · Clínicas estéticas · Centros de salud · Concesionarias · Inmobiliarias' : 'Gyms · Aesthetics clinics · Health centers · Dealerships · Real estate',
+    },
+    {
+      plan: t("plans.enterprise.name"), accentSolid: "#EAB308",
+      title: lang === 'es' ? 'Empresas con operación compleja' : 'Companies with complex operations',
+      desc: lang === 'es'
+        ? 'Si tenés equipos, procesos internos y necesitás que todo funcione conectado, Enterprise construye el ecosistema digital completo. CRM a medida, agentes IA por departamento y soporte permanente.'
+        : "If you have teams and internal processes that need to work connected, Enterprise builds the complete digital ecosystem. Custom CRM, AI agents per department, and permanent support.",
+      examples: lang === 'es' ? 'Empresas de servicios · Franquicias · Operaciones multi-sede · Distribuidoras' : 'Service companies · Franchises · Multi-location operations · Distributors',
+    },
+  ];
+
+  const steps = [
+    { num: "01", icon: Search, title: t("plans.how.1.title"), desc: t("plans.how.1.desc") },
+    { num: "02", icon: Wrench, title: t("plans.how.2.title"), desc: t("plans.how.2.desc") },
+    { num: "03", icon: Rocket, title: t("plans.how.3.title"), desc: t("plans.how.3.desc") },
+    { num: "04", icon: Users,  title: t("plans.how.4.title"), desc: t("plans.how.4.desc") },
+  ];
+
+  const allIncluded = [
+    { icon: Shield,   text: lang === 'es' ? 'Sin costos ocultos' : 'No hidden costs' },
+    { icon: Clock,    text: lang === 'es' ? 'Entrega en tiempo acordado' : 'On-time delivery' },
+    { icon: Sparkles, text: lang === 'es' ? 'Soporte mensual incluido' : 'Monthly support included' },
+    { icon: Check,    text: lang === 'es' ? 'Revisiones hasta que quede perfecto' : 'Revisions until perfect' },
+  ];
+
   const faqs = [
     {
       q: lang === 'es' ? '¿Cuánto tarda la implementación?' : 'How long does implementation take?',
       a: lang === 'es'
-        ? 'El plan Start se implementa en 1-2 semanas. El Pro en 2-4 semanas. Enterprise puede variar según la complejidad, pero nunca más de 6 semanas.'
-        : 'Start plan is implemented in 1-2 weeks. Pro in 2-4 weeks. Enterprise varies by complexity but never more than 6 weeks.',
+        ? 'El plan Start se implementa en 1–2 semanas. El Pro en 2–4 semanas. Enterprise puede variar según la complejidad, pero nunca más de 6 semanas.'
+        : 'Start plan is implemented in 1–2 weeks. Pro in 2–4 weeks. Enterprise varies by complexity but never more than 6 weeks.',
     },
     {
-      q: lang === 'es' ? '¿Qué pasa si no me gusta el resultado?' : 'What if I don\'t like the result?',
+      q: lang === 'es' ? '¿Qué pasa si no me gusta el resultado?' : "What if I don't like the result?",
       a: lang === 'es'
         ? 'Trabajamos con revisiones incluidas en cada plan. Si no estás conforme, lo ajustamos hasta que funcione para tu negocio.'
-        : 'We work with revisions included in each plan. If you\'re not satisfied, we adjust until it works for your business.',
+        : "We work with revisions included in each plan. If you're not satisfied, we adjust until it works for your business.",
     },
     {
       q: lang === 'es' ? '¿Necesito conocimientos técnicos?' : 'Do I need technical knowledge?',
@@ -115,74 +144,57 @@ const Planes = () => {
         ? 'Sí, podés escalar de plan en cualquier momento. Solo pagás la diferencia.'
         : 'Yes, you can scale up at any time. You just pay the difference.',
     },
-  ];
-
-  const guarantees = [
-    { icon: Shield, text: lang === 'es' ? 'Sin costos ocultos' : 'No hidden costs' },
-    { icon: Clock, text: lang === 'es' ? 'Entrega en tiempo' : 'On-time delivery' },
-    { icon: Sparkles, text: lang === 'es' ? 'Soporte incluido' : 'Support included' },
+    {
+      q: lang === 'es' ? '¿Los precios están en dólares?' : 'Are prices in USD?',
+      a: lang === 'es'
+        ? 'Sí, los precios están expresados en dólares estadounidenses. El pago se coordina según tu país y método preferido.'
+        : 'Yes, prices are in US dollars. Payment is coordinated according to your country and preferred method.',
+    },
   ];
 
   return (
     <Layout>
       <div className="relative w-full min-h-full" style={{ backgroundColor: 'var(--surface)' }}>
-
-        {/* ========== COMPACT HEADER — not a full hero ========== */}
-        <section className="pt-32 sm:pt-40 pb-6 sm:pb-10">
+        <section className="relative page-hero flex items-center pb-24">
           <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full"
-              style={{ backgroundColor: 'var(--icon-bg)', border: '1px solid var(--border-color)' }}
-            >
-              <Sparkles className="w-3.5 h-3.5" style={{ color: 'var(--text-muted)' }} />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+              className="inline-block mb-6 px-4 py-2 rounded-full" style={{ border: '1px solid var(--border-color)' }}>
               <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                 {t("plans.hero.badge")}
               </span>
             </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-aspekta font-bold mb-5"
-              style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.8rem, 5vw, 3rem)', lineHeight: 1.15, letterSpacing: '-0.02em' }}
-            >
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+              className="font-aspekta font-bold mb-8" style={{ color: 'var(--text-primary)', fontSize: 'clamp(2.2rem, 7vw, 3.5rem)', lineHeight: 1.1 }}>
               {t("plans.hero.title")}
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="max-w-xl mx-auto mb-8"
-              style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '165%' }}
-            >
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+              className="mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: '160%' }}>
               {t("plans.hero.subtitle")}
             </motion.p>
-
-            {/* Guarantees strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="flex flex-wrap justify-center gap-6"
-            >
-              {guarantees.map((g, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <g.icon className="w-4 h-4" style={{ color: 'var(--text-muted)' }} strokeWidth={1.5} />
-                  <span className="text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>{g.text}</span>
-                </div>
-              ))}
-            </motion.div>
           </div>
         </section>
 
-        {/* ========== PLANS GRID — the main event ========== */}
-        <section className="py-10 sm:py-16" style={{ backgroundColor: 'var(--surface)' }}>
+        <div className="gradient-divider" />
+
+        {/* ========== PLANS GRID ========== */}
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface)' }}>
           <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+            <BlurReveal>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-center" style={{ color: 'var(--text-muted)' }}>
+                {t("plans.section.label")}
+              </p>
+            </BlurReveal>
+            <BlurReveal delay={0.1}>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: 'var(--text-primary)' }}>
+                {t("plans.section.title")}
+              </h2>
+            </BlurReveal>
+            <BlurReveal delay={0.15}>
+              <p className="text-base text-center mb-14 max-w-xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+                {t("plans.section.subtitle")}
+              </p>
+            </BlurReveal>
+
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -199,7 +211,6 @@ const Planes = () => {
                   }`}
                   style={plan.highlighted ? { boxShadow: '0 12px 48px rgba(0,0,0,0.15)' } : {}}
                 >
-                  {/* Popular badge */}
                   {plan.highlighted && (
                     <div
                       className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider"
@@ -209,7 +220,7 @@ const Planes = () => {
                     </div>
                   )}
 
-                  {/* Plan icon + name */}
+                  {/* Icon + name */}
                   <div className="flex items-center gap-3 mb-5">
                     <div
                       className="w-11 h-11 rounded-2xl flex items-center justify-center"
@@ -237,30 +248,21 @@ const Planes = () => {
                     </div>
                   </div>
 
-                  {/* Price block */}
+                  {/* Price */}
                   <div
                     className="rounded-2xl p-5 mb-5"
                     style={{ backgroundColor: plan.highlighted ? 'rgba(255,255,255,0.06)' : 'var(--icon-bg)' }}
                   >
-                    <p
-                      className="text-2xl font-bold mb-0.5"
-                      style={{ color: plan.highlighted ? 'var(--card-text)' : 'var(--text-primary)' }}
-                    >
+                    <p className="text-2xl font-bold mb-0.5" style={{ color: plan.highlighted ? 'var(--card-text)' : 'var(--text-primary)' }}>
                       {plan.priceSetup}
                     </p>
-                    <p
-                      className="text-sm font-medium"
-                      style={{ color: plan.highlighted ? 'var(--card-text-muted)' : 'var(--text-secondary)' }}
-                    >
+                    <p className="text-sm font-medium" style={{ color: plan.highlighted ? 'var(--card-text-muted)' : 'var(--text-secondary)' }}>
                       {plan.priceMonthly}
                     </p>
                   </div>
 
                   {/* Ideal for */}
-                  <p
-                    className="text-xs mb-5 leading-relaxed"
-                    style={{ color: plan.highlighted ? 'var(--card-text-muted)' : 'var(--text-muted)' }}
-                  >
+                  <p className="text-xs mb-5 leading-relaxed" style={{ color: plan.highlighted ? 'var(--card-text-muted)' : 'var(--text-muted)' }}>
                     {plan.ideal}
                   </p>
 
@@ -277,10 +279,7 @@ const Planes = () => {
                         >
                           <Check className="w-3 h-3" strokeWidth={2.5} />
                         </div>
-                        <span
-                          className="text-sm leading-snug"
-                          style={{ color: plan.highlighted ? 'var(--card-text)' : 'var(--text-primary)' }}
-                        >
+                        <span className="text-sm leading-snug" style={{ color: plan.highlighted ? 'var(--card-text)' : 'var(--text-primary)' }}>
                           {feature}
                         </span>
                       </div>
@@ -293,10 +292,7 @@ const Planes = () => {
                     className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 ${
                       plan.highlighted ? '' : 'btn-secondary'
                     }`}
-                    style={plan.highlighted ? {
-                      background: 'linear-gradient(135deg, #A855F7, #7C3AED)',
-                      color: '#FFFFFF',
-                    } : {}}
+                    style={plan.highlighted ? { background: 'linear-gradient(135deg, #A855F7, #7C3AED)', color: '#FFFFFF' } : {}}
                   >
                     {lang === 'es' ? 'Empezar ahora' : 'Get started'}
                     <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
@@ -309,16 +305,90 @@ const Planes = () => {
 
         <div className="gradient-divider" />
 
-        {/* ========== TESTIMONIALS — horizontal compact ========== */}
-        <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--surface-secondary)' }}>
+        {/* ========== WHO IT'S FOR ========== */}
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface-secondary)' }}>
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
             <BlurReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest mb-3 text-center" style={{ color: 'var(--text-muted)' }}>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-center" style={{ color: 'var(--text-muted)' }}>
+                {lang === 'es' ? '¿PARA QUIÉN ES CADA PLAN?' : 'WHO IS EACH PLAN FOR?'}
+              </p>
+            </BlurReveal>
+            <BlurReveal delay={0.1}>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-14" style={{ color: 'var(--text-primary)' }}>
+                {lang === 'es' ? 'Encontrá el tuyo' : 'Find yours'}
+              </h2>
+            </BlurReveal>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {whoFor.map((w, i) => (
+                <BlurReveal key={i} delay={0.08 * i}>
+                  <div className="rounded-[20px] p-7 h-full flex flex-col card-surface">
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest mb-4 inline-block"
+                      style={{ color: w.accentSolid }}
+                    >
+                      Plan {w.plan}
+                    </span>
+                    <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--text-primary)' }}>{w.title}</h3>
+                    <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: 'var(--text-secondary)' }}>{w.desc}</p>
+                    <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{w.examples}</p>
+                  </div>
+                </BlurReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className="gradient-divider" />
+
+        {/* ========== PROCESS ========== */}
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface-secondary)' }}>
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <BlurReveal>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-center" style={{ color: 'var(--text-muted)' }}>
+                {t("plans.how.label")}
+              </p>
+            </BlurReveal>
+            <BlurReveal delay={0.1}>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-14" style={{ color: 'var(--text-primary)' }}>
+                {t("plans.how.title")}
+              </h2>
+            </BlurReveal>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+            >
+              {steps.map((step, i) => (
+                <motion.div
+                  key={i}
+                  variants={staggerItem}
+                  className="p-7 rounded-[20px] text-center transition-all duration-300 hover:-translate-y-0.5 card-surface"
+                >
+                  <span className="text-3xl font-bold block mb-4" style={{ color: 'var(--border-color)' }}>{step.num}</span>
+                  <step.icon className="w-6 h-6 mx-auto mb-4" style={{ color: 'var(--text-primary)' }} strokeWidth={1.5} />
+                  <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{step.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{step.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        <div className="gradient-divider" />
+
+        {/* ========== TESTIMONIALS ========== */}
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface)' }}>
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <BlurReveal>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-center" style={{ color: 'var(--text-muted)' }}>
                 {t("plans.testimonials.label")}
               </p>
             </BlurReveal>
             <BlurReveal delay={0.1}>
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-10" style={{ color: 'var(--text-primary)' }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-14" style={{ color: 'var(--text-primary)' }}>
                 {t("plans.testimonials.title")}
               </h2>
             </BlurReveal>
@@ -328,7 +398,7 @@ const Planes = () => {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-3 gap-5"
+              className="grid grid-cols-1 md:grid-cols-2 gap-5"
             >
               {testimonials.map((testimonial, i) => (
                 <motion.div
@@ -338,7 +408,7 @@ const Planes = () => {
                 >
                   <Quote className="w-6 h-6 mb-4 opacity-20" style={{ color: 'var(--text-primary)' }} strokeWidth={1} />
                   <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'var(--text-secondary)' }}>
-                    "{t(testimonial.textKey)}"
+                    «{t(testimonial.textKey)}»
                   </p>
                   <div className="pt-4 flex items-center gap-3" style={{ borderTop: '1px solid var(--border-color)' }}>
                     <div
@@ -360,16 +430,16 @@ const Planes = () => {
 
         <div className="gradient-divider" />
 
-        {/* ========== FAQ — accordion style ========== */}
-        <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--surface)' }}>
+        {/* ========== FAQ ========== */}
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface-secondary)' }}>
           <div className="container mx-auto px-4 sm:px-6 max-w-2xl">
             <BlurReveal>
-              <p className="text-xs font-semibold uppercase tracking-widest mb-3 text-center" style={{ color: 'var(--text-muted)' }}>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-center" style={{ color: 'var(--text-muted)' }}>
                 {lang === 'es' ? 'PREGUNTAS FRECUENTES' : 'FAQ'}
               </p>
             </BlurReveal>
             <BlurReveal delay={0.1}>
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-10" style={{ color: 'var(--text-primary)' }}>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12" style={{ color: 'var(--text-primary)' }}>
                 {lang === 'es' ? '¿Tenés dudas?' : 'Got questions?'}
               </h2>
             </BlurReveal>
@@ -378,7 +448,7 @@ const Planes = () => {
               {faqs.map((faq, i) => (
                 <BlurReveal key={i} delay={0.05 * i}>
                   <div
-                    className="rounded-2xl overflow-hidden transition-all duration-300 card-surface"
+                    className="rounded-2xl overflow-hidden card-surface"
                     style={{ borderColor: openFaq === i ? 'var(--text-muted)' : undefined }}
                   >
                     <button
@@ -390,10 +460,7 @@ const Planes = () => {
                       </span>
                       <ChevronDown
                         className="w-4 h-4 flex-shrink-0 transition-transform duration-300"
-                        style={{
-                          color: 'var(--text-muted)',
-                          transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)',
-                        }}
+                        style={{ color: 'var(--text-muted)', transform: openFaq === i ? 'rotate(180deg)' : 'rotate(0)' }}
                         strokeWidth={2}
                       />
                     </button>
@@ -415,15 +482,15 @@ const Planes = () => {
         </section>
 
         {/* ========== CTA FINAL ========== */}
-        <section className="py-16 sm:py-24 card-contrast">
+        <section className="py-20 sm:py-28 card-contrast">
           <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
             <BlurReveal>
-              <h2 className="text-2xl md:text-3xl font-bold mb-5" style={{ color: 'var(--card-text)' }}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--card-text)' }}>
                 {t("plans.cta.title")}
               </h2>
             </BlurReveal>
             <BlurReveal delay={0.1}>
-              <p className="text-sm mb-8 max-w-lg mx-auto" style={{ color: 'var(--card-text-muted)' }}>
+              <p className="text-base mb-10 max-w-lg mx-auto" style={{ color: 'var(--card-text-muted)' }}>
                 {t("plans.cta.subtitle")}
               </p>
             </BlurReveal>
@@ -438,7 +505,7 @@ const Planes = () => {
                   <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </Link>
                 <a
-                  href="https://wa.me/5492995741741"
+                  href="https://wa.me/5492995707006"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"

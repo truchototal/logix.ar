@@ -21,6 +21,7 @@ const BlurReveal = ({ children, delay = 0, duration = 0.45, className = "", y = 
     <motion.div
       ref={ref}
       className={className}
+      style={{ willChange: 'opacity, transform' }}
       initial={{
         opacity: 0,
         y,

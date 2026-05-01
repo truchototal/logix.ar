@@ -20,9 +20,9 @@ const About = () => {
 
   return (
     <Layout>
-      <div style={{ backgroundColor: 'var(--surface)', paddingTop: '60px' }}>
+      <div style={{ backgroundColor: 'var(--surface)' }}>
         {/* Hero */}
-        <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center mt-16 mb-24">
+        <section className="relative page-hero flex items-center pb-24">
           <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               className="inline-block mb-6 px-4 py-2 rounded-full" style={{ border: '1px solid var(--border-color)' }}>
@@ -40,7 +40,7 @@ const About = () => {
         </section>
 
         {/* Story */}
-        <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--surface-secondary)' }}>
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface-secondary)' }}>
           <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
             <BlurReveal>
               <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-center" style={{ color: 'var(--text-muted)' }}>{t("about.story.label")}</p>
@@ -57,7 +57,7 @@ const About = () => {
         </section>
 
         {/* Mission & Vision */}
-        <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--surface)' }}>
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface)' }}>
           <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <BlurReveal>
@@ -81,7 +81,7 @@ const About = () => {
         </section>
 
         {/* Values / Pillars */}
-        <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--surface-secondary)' }}>
+        <section className="py-20 sm:py-28" style={{ backgroundColor: 'var(--surface-secondary)' }}>
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <BlurReveal><p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--text-muted)' }}>{t("about.pillars")}</p></BlurReveal>
@@ -103,7 +103,7 @@ const About = () => {
         </section>
 
         {/* Commitment CTA */}
-        <section className="py-16 sm:py-24 card-contrast">
+        <section className="py-20 sm:py-28 card-contrast">
           <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
             <BlurReveal>
               <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--card-text)' }}>{t("about.compromise.title")}</h2>
